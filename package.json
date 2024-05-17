@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite --port=8080",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bun run src/index.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite"
+    "dev": "npx vite --port=8080"
   },
   "dependencies": {
-    "@elysiajs/swagger": "^1.0.5",
+    "@elysiajs/static": "^1.0.3",
+    "elysia": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-speech": "^1.0.2"
