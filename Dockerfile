@@ -24,11 +24,13 @@ RUN apt-get update -qq && \
 COPY --link bun.lockb package.json ./
 RUN bun install --ci
 
-# run build
-RUN bun run build
+# # run build
+# RUN bun run build
 
 # Copy application code
 COPY --link . .
+
+RUN bun run build
 
 
 # Final stage for app image
