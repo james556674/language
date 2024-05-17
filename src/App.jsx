@@ -71,7 +71,6 @@ function App() {
   ]
 
 
-
   return (
     <div
       className="mobile-container"
@@ -93,15 +92,27 @@ function App() {
           marginTop: '20px',
         }}
       >
-        {koreanFortySounds.map((sound, index) => (
-          <Speech
-            textAsButton
-            key={index}
-            text={sound}
-            lang="ko-KR"
-            // male voice
-            voice="Google 한국의"
-          />
+        {koreanFortySounds.map((sound) => (
+          <button
+            key={sound}
+            className='speech-button'
+            style={{
+              padding: '5px 10px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              height: "40px",
+              backgroundColor: "#dcdcdc",
+            }}
+            onClick={() => {
+              let utterance = new SpeechSynthesisUtterance(sound);
+              // speak korean
+              utterance.lang = "ko-KR";
+              speechSynthesis.speak(utterance);
+            
+            }}
+          >
+            {sound}
+          </button>
         ))}
       </div>
       
@@ -116,12 +127,25 @@ function App() {
       >
         <div className="speech-container">
           <h2>Random Sentence</h2>
-          <Speech
-            textAsButton
-            text={koreanRandomSentences[index].kor}
-            lang="ko-KR"
-            voice="Google 한국의"
-          />
+          <button
+            className='speech-button'
+            style={{
+              padding: '5px 10px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              height: "40px",
+              backgroundColor: "#dcdcdc",
+              marginRight: '10px',
+            }}
+            onClick={() => {
+              let utterance = new SpeechSynthesisUtterance(koreanRandomSentences[index].kor);
+              // speak korean
+              utterance.lang = "ko-KR";
+              speechSynthesis.speak(utterance);
+            }}
+          >
+            {koreanRandomSentences[index].kor}
+          </button>
           <button
             style={{
               marginTop: '10px',
@@ -133,7 +157,7 @@ function App() {
             }}
             onClick={() => setIndex((index + 1) % koreanRandomSentences.length)}
           >
-            {koreanRandomSentences[index].eng} (Next)
+            {koreanRandomSentences[index].eng} (Next) &gt;
           </button>
         </div>
       </div>
