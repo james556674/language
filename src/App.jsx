@@ -73,18 +73,38 @@ function App() {
 
 
   return (
-    <>
+    <div
+      className="mobile-container"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        maxWidth: '100%',
+      }}
+    >
       <h1>한글 40자</h1>
-      {koreanFortySounds.map((sound, index) => (
-        <Speech
-          textAsButton
-          key={index}
-          text={sound} 
-          lang="ko-KR"
-          // male voice
-          voice="Google 한국의"
-        />
-      ))}
+      <div
+        className="grid-container"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: '10px',
+          marginTop: '20px',
+        }}
+      >
+        {koreanFortySounds.map((sound, index) => (
+          <Speech
+            textAsButton
+            key={index}
+            text={sound}
+            lang="ko-KR"
+            // male voice
+            voice="Google 한국의"
+          />
+        ))}
+      </div>
+      
       {/* random sentence */}
       <div
         style={{
@@ -118,7 +138,7 @@ function App() {
         </div>
       </div>
       
-    </>
+    </div>
   )
 }
 
