@@ -1,9 +1,7 @@
 import { useState } from "react"
-import "./App.css"
 import { Button } from "@/components/ui/button"
 
-
-function App() {
+const Main = () => {
   const [index, setIndex] = useState(0)
   const koreanFortySounds = [
     "ㅏ",
@@ -81,6 +79,7 @@ function App() {
         alignItems: "center",
         justifyContent: "center",
         maxWidth: "100%",
+        padding: "20px",
       }}
     >
       <Button>Secondary</Button>
@@ -110,20 +109,20 @@ function App() {
               // speak korean
               utterance.lang = "ko-KR";
               speechSynthesis.speak(utterance);
-            
+
             }}
           >
             {sound}
           </button>
         ))}
       </div>
-      
+
       {/* random sentence */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          marginTop: "20px",      
+          marginTop: "20px",
           justifyContent: "center",
         }}
       >
@@ -163,9 +162,9 @@ function App() {
           </button>
         </div>
       </div>
-      
+
     </div>
   )
 }
 
-export default App
+export default Main
