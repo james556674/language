@@ -7,6 +7,7 @@ import {
 
 import Layout from "./pages/Layout/Layout"
 import LetterList from "./pages/LetterList/LetterList"
+import ErrorBoundary from "./pages/ErrorBoundary/ErrorBoundary"
 
 import "./index.css";
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: "",
