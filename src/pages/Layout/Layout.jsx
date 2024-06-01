@@ -19,9 +19,9 @@ const Header = styled.div`
   align-items: center;
   padding: .6rem 1rem;
   color: #fff;
-  background: #FFEFEF;
+  background: #FFD0D0;
   border-radius: 0 0 .7rem .7rem;
-  opacity: ${({ isSidebarOpen }) => isSidebarOpen ? .45 : 1};
+  
 
   .icon {
     font-size: 1.5rem;
@@ -54,12 +54,12 @@ const LinksContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     padding: .8rem 1rem;
-    background: #E1ACAC;
+    background: #FFD0D0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
     border-radius: .7rem .7rem 0 0;
 
     .icon {
-      color: #fff;
+      color: #626262;
       font-size: 1.5rem;
       cursor: pointer;
     }

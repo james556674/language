@@ -1,7 +1,13 @@
-import { useState } from "react"
+// import { useState } from "react"
+import { Button } from "@/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button>Button</Button>
+}
+
 
 const Main = () => {
-  const [index, setIndex] = useState(0)
+  // const [index, setIndex] = useState(0)
   const koreanFortySounds = [
     "ㅏ",
     "ㅑ",
@@ -73,15 +79,25 @@ const Main = () => {
     <div
       className="mobile-container"
       style={{
-        height: "100%",
+        height: "calc(100vh - 70px)",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
         maxWidth: "100%",
-        padding: "20px",
+        padding: "50px",
+        marginTop: "70px",
       }}
     >
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "2rem",
+          marginBottom: "20px",
+          color: "#CA8787",
+          fontWeight: 500,
+        }}
+      >
+        Korean Speech Synthesis
+      </h1>
       <div
         className="grid-container"
         style={{
@@ -92,16 +108,13 @@ const Main = () => {
         }}
       >
         {koreanFortySounds.map((sound) => (
-          <button
+          <Button
+            style={{
+              fontSize: "1rem",
+            }}
             key={sound}
             className="speech-button"
-            style={{
-              padding: "5px 10px",
-              fontSize: "16px",
-              cursor: "pointer",
-              height: "40px",
-              backgroundColor: "#dcdcdc",
-            }}
+            variant="secondary"
             onClick={() => {
               let utterance = new SpeechSynthesisUtterance(sound);
               // speak korean
@@ -111,12 +124,12 @@ const Main = () => {
             }}
           >
             {sound}
-          </button>
+          </Button>
         ))}
       </div>
 
       {/* random sentence */}
-      <div
+      {/* <div
         style={{
           display: "flex",
           alignItems: "center",
@@ -124,18 +137,16 @@ const Main = () => {
           justifyContent: "center",
         }}
       >
-        <div className="speech-container">
+        <div>
           <h2>Random Sentence</h2>
-          <button
+          <Button
             className="speech-button"
             style={{
-              padding: "5px 10px",
-              fontSize: "16px",
-              cursor: "pointer",
-              height: "40px",
-              backgroundColor: "#dcdcdc",
               marginRight: "10px",
+              marginTop: "10px",
+            
             }}
+            variant="secondary"
             onClick={() => {
               let utterance = new SpeechSynthesisUtterance(koreanRandomSentences[index].kor);
               // speak korean
@@ -144,22 +155,15 @@ const Main = () => {
             }}
           >
             {koreanRandomSentences[index].kor}
-          </button>
-          <button
-            style={{
-              marginTop: "10px",
-              padding: "5px 10px",
-              fontSize: "16px",
-              cursor: "pointer",
-              height: "40px",
-              backgroundColor: "lightblue",
-            }}
+          </Button>
+          <Button
+            variant="secondary"
             onClick={() => setIndex((index + 1) % koreanRandomSentences.length)}
           >
             {koreanRandomSentences[index].eng} (Next) &gt;
-          </button>
+          </Button>
         </div>
-      </div>
+      </div> */}
 
     </div>
   )
