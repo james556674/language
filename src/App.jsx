@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import Speech from 'react-speech'
-import './App.css'
+import { useState } from "react"
+import "./App.css"
 
 function App() {
   const [index, setIndex] = useState(0)
@@ -75,31 +74,31 @@ function App() {
     <div
       className="mobile-container"
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '100%',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        maxWidth: "100%",
       }}
     >
       <h1>한글 40자</h1>
       <div
         className="grid-container"
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
-          gap: '10px',
-          marginTop: '20px',
+          display: "grid",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gap: "10px",
+          marginTop: "20px",
         }}
       >
         {koreanFortySounds.map((sound) => (
           <button
             key={sound}
-            className='speech-button'
+            className="speech-button"
             style={{
-              padding: '5px 10px',
-              fontSize: '16px',
-              cursor: 'pointer',
+              padding: "5px 10px",
+              fontSize: "16px",
+              cursor: "pointer",
               height: "40px",
               backgroundColor: "#dcdcdc",
             }}
@@ -119,23 +118,23 @@ function App() {
       {/* random sentence */}
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          marginTop: '20px',      
-          justifyContent: 'center',
+          display: "flex",
+          alignItems: "center",
+          marginTop: "20px",      
+          justifyContent: "center",
         }}
       >
         <div className="speech-container">
           <h2>Random Sentence</h2>
           <button
-            className='speech-button'
+            className="speech-button"
             style={{
-              padding: '5px 10px',
-              fontSize: '16px',
-              cursor: 'pointer',
+              padding: "5px 10px",
+              fontSize: "16px",
+              cursor: "pointer",
               height: "40px",
               backgroundColor: "#dcdcdc",
-              marginRight: '10px',
+              marginRight: "10px",
             }}
             onClick={() => {
               let utterance = new SpeechSynthesisUtterance(koreanRandomSentences[index].kor);
@@ -148,10 +147,10 @@ function App() {
           </button>
           <button
             style={{
-              marginTop: '10px',
-              padding: '5px 10px',
-              fontSize: '16px',
-              cursor: 'pointer',
+              marginTop: "10px",
+              padding: "5px 10px",
+              fontSize: "16px",
+              cursor: "pointer",
               height: "40px",
               backgroundColor: "lightblue",
             }}
