@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 
 const Main = () => {
   const [index, setIndex] = useState(0)
@@ -82,8 +81,6 @@ const Main = () => {
         padding: "20px",
       }}
     >
-      <Button>Secondary</Button>
-      <h1>한글 40자</h1>
       <div
         className="grid-container"
         style={{
