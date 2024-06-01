@@ -1,5 +1,7 @@
 import { useState } from "react"
 import "./App.css"
+import { Button } from "@/components/ui/button"
+
 
 function App() {
   const [index, setIndex] = useState(0)
@@ -81,6 +83,7 @@ function App() {
         maxWidth: "100%",
       }}
     >
+      <Button>Secondary</Button>
       <h1>한글 40자</h1>
       <div
         className="grid-container"
