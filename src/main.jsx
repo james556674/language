@@ -5,14 +5,21 @@ import {
   RouterProvider,
 } from "react-router-dom"
 
-import Main from "./pages/Main"
+import Layout from "./pages/Layout/Layout"
+import LetterList from "./pages/LetterList/LetterList"
 
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <Layout />,
+    children: [
+      {
+        path: "letters",
+        element: <LetterList />,
+      },
+    ],
   },
 ]);
 
