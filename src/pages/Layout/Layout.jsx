@@ -2,8 +2,8 @@ import { useState } from "react"
 import { Outlet, Link } from "react-router-dom"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
-import { faBell } from "@fortawesome/free-regular-svg-icons"
+import { faBars, faBook, faFont, faGear, faGraduationCap, faHouse, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBell, faCopyright } from "@fortawesome/free-regular-svg-icons"
 import jamesLogo from "../../../public/jamesLogo.png"
 
 const MainContainer = styled.div`
@@ -41,14 +41,14 @@ const LogoContainer = styled.div`
 const LinksContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
-  top: ${({ show }) => show ? "50px" : "100%"};
+  height: fit-content;
+  bottom: ${({ show }) => show ? "0" : "-100%"};
   background: #fff;
   border-radius: 0 0 .7rem .7rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 
   ${'' /* make diplay animation from bottom to top */}
-  transition: top .5s;
+  transition: bottom .3s;
 
 
   .header {
@@ -63,7 +63,75 @@ const LinksContainer = styled.div`
       cursor: pointer;
     }
   }
+
+  .links-content-container {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+    .link {
+      padding: 1rem 1rem 1rem 34%;
+      width: 100%;
+      color: #707070;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #e8e7e8;
+
+      display: flex;
+      align-items: center;
+
+
+      .icon {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #707070;
+    padding: 2rem 0;
+
+
+    .icon {
+      margin-right: .5rem;
+    }
+
+    p {
+      font-size: .9rem;
+    }
+  
+  }
 `
+
+const links = [
+  {
+    to: "/",
+    label: "Home",
+    icon: faHouse
+  },
+  {
+    to: "/letters",
+    label: "Basic Sounds",
+    icon: faFont
+  },
+  {
+    to: "/test",
+    label: "Start Review",
+    icon: faGraduationCap
+  },
+  {
+    to: "/manager",
+    label: "Notes",
+    icon: faBook
+  },
+  {
+    to: "/settings",
+    label: "Settings",
+    icon: faGear
+  },
+]
 
 const Layout = () => {
   const [openSidebar, setOpenSidebar] = useState(true)
@@ -102,6 +170,25 @@ const Layout = () => {
             icon={faXmark} 
             onClick={() => setOpenSidebar(false)}
           />
+        </div>
+        <div className="links-content-container">
+          {links.map(({ to, label, icon }) => (
+            <>
+              <Link
+                key={to}
+                to={to}
+                className="link"
+              >
+                <FontAwesomeIcon icon={icon} className="icon" />
+                {label}
+              </Link>
+            </>
+          ))}
+        </div>
+        <div className="footer">
+          {/* copy right james */}
+          <FontAwesomeIcon className="icon" icon={faCopyright} />
+          <p>2024 James v1.0.1</p>
         </div>
       </LinksContainer>
     </MainContainer>
