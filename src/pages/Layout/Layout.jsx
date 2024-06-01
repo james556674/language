@@ -44,7 +44,6 @@ const LinksContainer = styled.div`
   height: fit-content;
   bottom: ${({ show }) => show ? "0" : "-100%"};
   background: #fff;
-  border-radius: 0 0 .7rem .7rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 
   ${'' /* make diplay animation from bottom to top */}
@@ -55,10 +54,12 @@ const LinksContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     padding: .8rem 1rem;
-    border-bottom: 1px solid #e8e7e8;
+    background: #E1ACAC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    border-radius: .7rem .7rem 0 0;
 
     .icon {
-      color: #707070;
+      color: #fff;
       font-size: 1.5rem;
       cursor: pointer;
     }
@@ -72,9 +73,9 @@ const LinksContainer = styled.div`
     .link {
       padding: 1rem 1rem 1rem 34%;
       width: 100%;
-      color: #707070;
+      color: #CA8787;
       font-size: 1.5rem;
-      border-bottom: 1px solid #e8e7e8;
+      border-bottom: 2px double #CA8787;
 
       display: flex;
       align-items: center;
@@ -90,8 +91,9 @@ const LinksContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #707070;
+    color: #CA8787;
     padding: 2rem 0;
+
 
 
     .icon {
@@ -109,32 +111,37 @@ const links = [
   {
     to: "/",
     label: "Home",
-    icon: faHouse
+    icon: faHouse,
+    isDisable: false,
   },
   {
     to: "/letters",
     label: "Basic Sounds",
-    icon: faFont
+    icon: faFont,
+    isDisable: false,
   },
   {
     to: "/test",
     label: "Start Review",
-    icon: faGraduationCap
+    icon: faGraduationCap,
+    isDisable: true,
   },
   {
     to: "/manager",
     label: "Notes",
-    icon: faBook
+    icon: faBook,
+    isDisable: true,
   },
   {
     to: "/settings",
     label: "Settings",
-    icon: faGear
+    icon: faGear,
+    isDisable: true,
   },
 ]
 
 const Layout = () => {
-  const [openSidebar, setOpenSidebar] = useState(true)
+  const [openSidebar, setOpenSidebar] = useState(false)
   return (
     <MainContainer>
       <Header
@@ -172,12 +179,17 @@ const Layout = () => {
           />
         </div>
         <div className="links-content-container">
-          {links.map(({ to, label, icon }) => (
+          {links.map(({ to, label, icon, isDisable }) => (
             <>
               <Link
                 key={to}
                 to={to}
                 className="link"
+                style={{
+                  opacity: isDisable ? .5 : 1,
+                  pointerEvents: isDisable ? "none" : "auto",
+                }}
+                disabled={isDisable}
               >
                 <FontAwesomeIcon icon={icon} className="icon" />
                 {label}
