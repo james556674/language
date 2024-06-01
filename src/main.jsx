@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: "",
+        element: <LetterList />,
+      },
+      {
         path: "letters",
         element: <LetterList />,
       },

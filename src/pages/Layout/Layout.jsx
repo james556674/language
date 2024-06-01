@@ -21,12 +21,12 @@ const Header = styled.div`
   color: #fff;
   background: #FFEFEF;
   border-radius: 0 0 .7rem .7rem;
+  opacity: ${({ isSidebarOpen }) => isSidebarOpen ? .45 : 1};
 
   .icon {
     font-size: 1.5rem;
     cursor: pointer;
     color: #626262;
-  
   }
 `
 
@@ -60,6 +60,7 @@ const LinksContainer = styled.div`
     .icon {
       color: #707070;
       font-size: 1.5rem;
+      cursor: pointer;
     }
   }
 `
@@ -68,7 +69,9 @@ const Layout = () => {
   const [openSidebar, setOpenSidebar] = useState(true)
   return (
     <MainContainer>
-      <Header>
+      <Header
+        isSidebarOpen={openSidebar}
+      >
         <FontAwesomeIcon
           className="icon"
           icon={faBars}
